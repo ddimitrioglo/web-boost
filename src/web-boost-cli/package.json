@@ -1,0 +1,17 @@
+{
+  "name": "web-boost-cli",
+  "version": "0.0.1",
+  "description": "Static site generator CLI helper",
+  "main": "index.js",
+  "scripts": {},
+  "author": "ddimitrioglo",
+  "license": "MIT",
+  "homepage": "https://github.com/ddimitrioglo/web-boost#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddimitrioglo/web-boost.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ddimitrioglo/web-boost/issues"
+  }
+}
