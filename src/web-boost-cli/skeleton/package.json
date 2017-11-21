@@ -1,0 +1,17 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./server.js",
+    "start1": "node_modules/nodemon/bin/nodemon.js ./bin/www"
+  },
+  "devDependencies": {
+    "web-boost": "^0.0.1",
+    "express": "~4.15.5",
+    "twig": "~0.10.3",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.12.1",
+    "uglify-es": "^3.1.3"
+  }
+}

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    {#<link rel="stylesheet" href="{{ asset('@assets/result.min.css') }}" />#}
+    <link rel="stylesheet" href="/assets/result.min.css" />
+    <script src="{{ asset('@assets/result.min.js') }}"></script>
+  </head>
+  <body>
+    {% block body %}{% endblock %}
+  </body>
+</html>

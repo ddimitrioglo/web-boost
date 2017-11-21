@@ -2,7 +2,9 @@
   "name": "web-boost-cli",
   "version": "0.0.1",
   "description": "Static site generator CLI helper",
-  "main": "index.js",
+  "bin": {
+    "web-boost-cli": "index.js"
+  },
   "scripts": {},
   "author": "ddimitrioglo",
   "license": "MIT",
