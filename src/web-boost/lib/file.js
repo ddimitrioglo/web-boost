@@ -3,16 +3,17 @@
 const fs = require('fs');
 const url = require('url');
 const path = require('path');
+const cfg = require('../config');
 
 class File {
   /**
    * @param {String} path
-   * @param {String} appPath
    */
-  constructor(path, appPath) {
+  constructor(path) {
     this._path = path;
-    this._fullPath = (/^@.*/.test(path)) ? path.replace('@', `${appPath}/`) : path;
-    this._url = url.parse(/^\/\/.*/.test(path) ? `http:${path}` : path);
+    this._fullPath = path.replace(/^@/, `${cfg.get('app.path')}/`);
+    this._url = url.parse(path.replace(/^\/\/.*/, 'http://'));
+    // this._url = url.parse(/^\/\/.*/.test(path) ? `http:${path}` : path);
     this._content = false;
   }
 
@@ -75,7 +76,7 @@ class File {
   setContent(content) {
     return new Promise((resolve, reject) => {
       fs.writeFile(this.fullPath(), content, { flag: 'w+' }, err => {
-        return err ? reject(err) : resolve('Done');
+        return err ? reject(err) : resolve();
       });
     });
   }

@@ -1,17 +1,15 @@
 {
-  "name": "test",
-  "version": "0.0.1",
+  "name": "web-boost-skeleton",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start": "node ./server.js",
-    "start1": "node_modules/nodemon/bin/nodemon.js ./bin/www"
+    "start": "node ./server.js"
   },
   "devDependencies": {
     "web-boost": "^0.0.1",
     "express": "~4.15.5",
     "twig": "~0.10.3",
     "node-sass": "^4.5.3",
-    "nodemon": "^1.12.1",
     "uglify-es": "^3.1.3"
   }
 }

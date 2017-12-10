@@ -1,3 +1,7 @@
+#!/usr/bin/env node
+
+'use strict';
+
 const WebBoost = require('web-boost');
 const WebBoostApp = new WebBoost();
 
@@ -11,14 +15,13 @@ WebBoostApp
       description: 'test description'
     },
     // assets: {
-    //   '@assets/result.min.js': [
-    //     '@test.js',
-    //     '@test1.min.js'
+    //   '@assets/dist/index.min.js': [
+    //     '@assets/src/js/main.js',
+    //     '@assets/src/js/index.js'
     //   ],
-    //   '@assets/result.min.css': [
-    //     '@test1.scss',
-    //     '@test2.scss',
-    //     '@test3.scss'
+    //   '@assets/dist/index.min.css': [
+    //     '@assets/src/styles/main.scss',
+    //     '@assets/src/styles/index.scss'
     //   ]
     // }
   })

@@ -6,6 +6,13 @@
   "scripts": {},
   "author": "ddimitrioglo",
   "license": "MIT",
+  "devDependencies": {
+    "express": "^4.16.2",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.12.1",
+    "twig": "^1.10.5",
+    "uglify-es": "^3.2.0"
+  },
   "homepage": "https://github.com/ddimitrioglo/web-boost#readme",
   "repository": {
     "type": "git",

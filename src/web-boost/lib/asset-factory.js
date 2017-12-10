@@ -6,11 +6,10 @@ const ScssAsset = require('./scss-asset');
 class AssetFactory {
   /**
    * @param {File} file
-   * @param {String} fallbackExt
    * @return {*}
    */
-  static create(file, fallbackExt) {
-    let type = file.getExt() || fallbackExt;
+  static create(file) {
+    let type = file.getExt();
 
     switch (type) {
       case '.sass':
