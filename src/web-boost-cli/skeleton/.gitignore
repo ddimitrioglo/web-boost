@@ -6,6 +6,7 @@
 
 # Compiled files
 assets/dist/*
+!assets/dist/.gitkeep
 
 # Logs
 *.log

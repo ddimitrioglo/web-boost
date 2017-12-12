@@ -1,17 +1,19 @@
 {
   "name": "web-boost",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Static site generator with page-speed optimisations",
-  "main": "web-boost.js",
-  "scripts": {},
+  "main": "index.js",
+  "bin": {
+    "web-boost": "./bin/cli.js"
+  },
   "author": "ddimitrioglo",
   "license": "MIT",
   "devDependencies": {
     "express": "^4.16.2",
+    "forever-monitor": "^1.7.1",
     "node-sass": "^4.7.2",
-    "nodemon": "^1.12.1",
     "twig": "^1.10.5",
-    "uglify-es": "^3.2.0"
+    "uglify-es": "^3.2.2"
   },
   "homepage": "https://github.com/ddimitrioglo/web-boost#readme",
   "repository": {

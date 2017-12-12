@@ -19,6 +19,13 @@ class Config {
   }
 
   /**
+   * @param {Object} config
+   */
+  setConfig(config) {
+    this._config = config;
+  }
+
+  /**
    * Ser property
    * @param {String} path
    * @param {*} value
@@ -63,7 +70,7 @@ class Config {
 
   /**
    * Handle multilevel config
-   * @param {String} path
+   * @param {String|Array} path
    * @param {Object} config
    * @return {Array}
    * @private

@@ -1,0 +1,34 @@
+{
+  "app": {
+    "config": {
+      "views": "views",
+      "assets": "assets"
+    }
+  },
+  "routes": {
+    "/": {
+      "view": "index.twig",
+      "vars": {
+        "title": "Home page",
+        "description": "test description"
+      },
+      "assets": {
+        "@assets/dist/index.min.js": [
+          "@assets/src/js/main.js",
+          "@assets/src/js/index.js"
+        ],
+        "@assets/dist/index.min.css": [
+          "@assets/src/styles/main.scss",
+          "@assets/src/styles/index.scss"
+        ]
+      }
+    },
+    "/user": {
+      "view": "user.twig",
+      "vars": {
+        "title": "User's page",
+        "description": "user page desc"
+      }
+    }
+  }
+}

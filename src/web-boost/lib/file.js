@@ -3,7 +3,7 @@
 const fs = require('fs');
 const url = require('url');
 const path = require('path');
-const cfg = require('../config');
+const cfg = require('./config');
 
 class File {
   /**
@@ -13,7 +13,6 @@ class File {
     this._path = path;
     this._fullPath = path.replace(/^@/, `${cfg.get('app.path')}/`);
     this._url = url.parse(path.replace(/^\/\/.*/, 'http://'));
-    // this._url = url.parse(/^\/\/.*/.test(path) ? `http:${path}` : path);
     this._content = false;
   }
 
