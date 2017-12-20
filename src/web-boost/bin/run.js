@@ -4,7 +4,6 @@
 
 const path = require('path');
 const { Monitor } = require('forever-monitor');
-
 const appPath = process.cwd();
 const [port, config] = process.argv.slice(2);
 

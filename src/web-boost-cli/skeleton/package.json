@@ -3,7 +3,8 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start": "node node_modules/.bin/web-boost"
+    "start": "node node_modules/.bin/wb-run",
+    "compile": "node node_modules/.bin/wb-compile"
   },
   "devDependencies": {
     "web-boost": "^0.0.2"
