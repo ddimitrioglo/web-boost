@@ -4,8 +4,9 @@
 
 const path = require('path');
 const { Monitor } = require('forever-monitor');
+
 const appPath = process.cwd();
-const [port, config] = process.argv.slice(2);
+const [ port ] = process.argv.slice(2);
 
 /**
  * Configure forever monitor
@@ -14,7 +15,7 @@ const server = new Monitor(path.join(__dirname, '../index.js'), {
   max: 3,
   args: [
     port || 8080,
-    path.join(appPath, config ? config : 'web-boost.json')
+    appPath
   ],
   watch: true,
   watchDirectory: appPath,

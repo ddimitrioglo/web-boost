@@ -3,31 +3,24 @@
 'use strict';
 
 const path = require('path');
-const Twig = require('twig');
+// const Twig = require('./helpers/twig');
 const Route = require('./lib/route');
 const config = require('./lib/config');
 const express = require('express');
 
-const [port, configPath] = process.argv.slice(2);
-const appPath = path.dirname(configPath);
 const app = express();
-
-config.setConfig(require(configPath));
-config.set('app.path', appPath);
+const [port, appPath] = process.argv.slice(2);
 
 /**
- * Twig configuration
+ * Init web-boost config
  */
-Twig.extendFunction('asset', (asset) => {
-  return asset.replace('@', '/');
-});
+config.init(appPath);
 
 /**
  * App configuration
  */
-let assetsPath = config.get('app.config.assets');
 app.set('views', path.join(appPath, config.get('app.config.views')));
-app.use(`/${assetsPath}`, express.static(path.join(appPath, assetsPath)));
+app.use('/static', express.static(path.join(appPath, config.get('app.config.assets'))));
 
 /**
  * Init web-boost routes

@@ -2,6 +2,7 @@
   "app": {
     "config": {
       "views": "views",
+      "build": "_build",
       "assets": "assets"
     }
   },
@@ -13,13 +14,13 @@
         "description": "test description"
       },
       "assets": {
-        "@assets/dist/index.min.js": [
-          "@assets/src/js/main.js",
-          "@assets/src/js/index.js"
+        "dist/index.min.js": [
+          "src/js/main.js",
+          "src/js/index.js"
         ],
-        "@assets/dist/index.min.css": [
-          "@assets/src/styles/main.scss",
-          "@assets/src/styles/index.scss"
+        "dist/index.min.css": [
+          "src/styles/main.scss",
+          "src/styles/index.scss"
         ]
       }
     },

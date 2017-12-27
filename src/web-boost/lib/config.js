@@ -1,5 +1,7 @@
 'use strict';
 
+const path = require('path');
+
 /**
  * Config
  */
@@ -8,7 +10,27 @@ class Config {
    * Constructor
    */
   constructor() {
+    this._cfgFile = 'web-boost.json';
     this._config = {};
+  }
+
+  /**
+   * Init web-boost application
+   * @param appPath
+   */
+  init(appPath) {
+    const config = require(path.join(appPath, this.cfgFile()));
+
+    this.setConfig(config);
+    this.set('app.path', appPath);
+  }
+
+  /**
+   * Web-boost config file
+   * @return {string}
+   */
+  cfgFile() {
+    return this._cfgFile;
   }
 
   /**

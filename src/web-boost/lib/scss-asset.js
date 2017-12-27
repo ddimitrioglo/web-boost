@@ -40,7 +40,7 @@ class ScssAsset extends AbstractAsset {
    * @returns {Boolean}
    */
   isCssMinified() {
-    return /.*\.min\.css$/.test(this.file().path());
+    return /.*\.min\.css$/.test(this.file().fullPath());
   }
 }
 

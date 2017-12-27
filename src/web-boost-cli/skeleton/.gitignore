@@ -5,6 +5,7 @@
 **/node_modules/
 
 # Compiled files
+_build
 assets/dist/*
 !assets/dist/.gitkeep
 

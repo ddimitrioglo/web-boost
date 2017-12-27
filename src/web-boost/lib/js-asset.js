@@ -40,7 +40,7 @@ class JsAsset extends AbstractAsset {
    * @returns {Boolean}
    */
   isJsMinified() {
-    return /.*\.min\.js/.test(this.file().path());
+    return /.*\.min\.js/.test(this.file().fullPath());
   }
 }
 

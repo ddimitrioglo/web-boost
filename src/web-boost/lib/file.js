@@ -1,26 +1,17 @@
 'use strict';
 
-const fs = require('fs');
+const fse = require('fs-extra');
 const url = require('url');
 const path = require('path');
-const cfg = require('./config');
 
 class File {
   /**
-   * @param {String} path
+   * @param {String} fullPath
    */
-  constructor(path) {
-    this._path = path;
-    this._fullPath = path.replace(/^@/, `${cfg.get('app.path')}/`);
-    this._url = url.parse(path.replace(/^\/\/.*/, 'http://'));
+  constructor(fullPath) {
+    this._fullPath = fullPath;
+    this._url = url.parse(fullPath.replace(/^\/\/.*/, 'http://'));
     this._content = false;
-  }
-
-  /**
-   * @returns {String|*}
-   */
-  path() {
-    return this._path;
   }
 
   /**
@@ -73,11 +64,7 @@ class File {
    * @returns {Promise}
    */
   setContent(content) {
-    return new Promise((resolve, reject) => {
-      fs.writeFile(this.fullPath(), content, { flag: 'w+' }, err => {
-        return err ? reject(err) : resolve();
-      });
-    });
+    return fse.outputFile(this.fullPath(), content.toString());
   }
 
   /**
@@ -86,7 +73,7 @@ class File {
    */
   getLocalContent() {
     return new Promise((resolve, reject) => {
-      fs.readFile(this.fullPath(), null, (err, data) => {
+      fse.readFile(this.fullPath(), null, (err, data) => {
         return err ? reject(err) : resolve(data);
       });
     });

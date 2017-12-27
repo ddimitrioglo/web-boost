@@ -2,39 +2,27 @@
 
 'use strict';
 
-// @todo
-// check if server is already running
-// include fs-extra
-// minify html during compile
-
-const fs = require('fs');
-const url = require('url');
-const path = require('path');
-const Crawler = require('crawler');
-
+const Route = require('../lib/route');
+const config = require('../lib/config');
 const appPath = process.cwd();
-const server = 'http://localhost:8080/';
-const buildPath = path.join(appPath, '_build/');
-const config = require(path.join(appPath, 'web-boost.json'));
 
-const crawler = new Crawler({
-  callback: (error, res, done) => {
-    const uri = res.options.uri;
-    const dist = uri.replace(server, buildPath);
+/**
+ * Init web-boost config
+ */
+config.init(appPath);
 
-    if (!error) {
-      try {
-        fs.mkdirSync(dist);
-      } catch(e) {
-        if ( e.code !== 'EEXIST' ) throw e;
-      }
+const routes = config.get('routes');
+const appRoutes = Object.keys(routes).map(route => new Route(route, routes[route]));
+const promises = [].concat(
+  appRoutes.map(route => route.compileView()),
+  appRoutes.map(route => route.packAssets(true))
+);
 
-      fs.writeFile(path.join(dist, 'index.html'), res.body, () => {
-        console.log(uri +' successfully compiled');
-      });
-    }
-    done();
-  }
+/**
+ * Compile views & assets
+ */
+Promise.all(promises).then(() => {
+  console.log('Compilation finished');
+}).catch(err => {
+  throw err;
 });
-
-crawler.queue(Object.keys(config.routes).map(route => url.resolve(server, route)));
