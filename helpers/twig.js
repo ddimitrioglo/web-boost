@@ -6,7 +6,7 @@ const Twig = require('twig');
  * Twig configuration
  */
 Twig.extendFunction('asset', (asset) => {
-  return asset.replace('@', '/static/');
+  return asset.replace(/^@/, '/');
 });
 
 module.exports = Twig;

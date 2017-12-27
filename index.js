@@ -2,10 +2,8 @@
 
 'use strict';
 
-const path = require('path');
-// const Twig = require('./helpers/twig');
-const Route = require('./lib/route');
-const config = require('./lib/config');
+const Route = require('./src/route');
+const config = require('./src/config');
 const express = require('express');
 
 const app = express();
@@ -19,8 +17,8 @@ config.init(appPath);
 /**
  * App configuration
  */
-app.set('views', path.join(appPath, config.get('app.config.views')));
-app.use('/static', express.static(path.join(appPath, config.get('app.config.assets'))));
+app.set('views', config.getPath('app.views'));
+app.use('/', express.static(config.getPath('app.public')));
 
 /**
  * Init web-boost routes

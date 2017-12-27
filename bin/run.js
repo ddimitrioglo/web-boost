@@ -19,7 +19,7 @@ const server = new Monitor(path.join(__dirname, '../index.js'), {
   ],
   watch: true,
   watchDirectory: appPath,
-  watchIgnorePatterns: ['node_modules/**', 'assets/dist/**']
+  watchIgnorePatterns: ['node_modules/**', 'public/**']
 });
 
 /**

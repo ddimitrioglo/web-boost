@@ -2,16 +2,20 @@
 
 const path = require('path');
 
-/**
- * Config
- */
 class Config {
   /**
    * Constructor
    */
   constructor() {
-    this._cfgFile = 'web-boost.json';
     this._config = {};
+    this._cfgFile = 'web-boost.json';
+    this._defaults = {
+      app: {
+        views: 'views',
+        assets: 'assets',
+        public: 'public'
+      }
+    };
   }
 
   /**
@@ -44,7 +48,7 @@ class Config {
    * @param {Object} config
    */
   setConfig(config) {
-    this._config = config;
+    this._config = Object.assign({}, this._defaults, config);
   }
 
   /**
@@ -78,6 +82,22 @@ class Config {
     let [cfg, key] = this._handle(path);
 
     return cfg[key];
+  }
+
+  /**
+   * Get absolute path of the property
+   * @param {String} prop
+   * @param suffixes
+   * @return {*}
+   */
+  getPath(prop, ...suffixes) {
+    if (typeof prop !== 'string') {
+      throw new Error('Only strings are allowed');
+    }
+
+    suffixes.unshift(this.get('app.path'), this.get(prop));
+
+    return path.join.apply(null, suffixes);
   }
 
   /**

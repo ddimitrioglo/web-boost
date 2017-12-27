@@ -1,5 +1,5 @@
 'use strict';
 
 setTimeout(() => {
-  console.log('Hi index page!');
+  console.log('Hi homepage!');
 }, 3000);

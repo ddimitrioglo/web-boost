@@ -5,7 +5,6 @@
   "bin": {
     "web-boost-cli": "index.js"
   },
-  "scripts": {},
   "author": "ddimitrioglo",
   "license": "MIT",
   "homepage": "https://github.com/ddimitrioglo/web-boost#readme",

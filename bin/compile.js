@@ -2,8 +2,8 @@
 
 'use strict';
 
-const Route = require('../lib/route');
-const config = require('../lib/config');
+const Route = require('../src/route');
+const config = require('../src/config');
 const appPath = process.cwd();
 
 /**
@@ -15,7 +15,7 @@ const routes = config.get('routes');
 const appRoutes = Object.keys(routes).map(route => new Route(route, routes[route]));
 const promises = [].concat(
   appRoutes.map(route => route.compileView()),
-  appRoutes.map(route => route.packAssets(true))
+  appRoutes.map(route => route.packAssets())
 );
 
 /**
