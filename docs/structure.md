@@ -3,7 +3,7 @@
 ### App structure
 
 ```text
-app                           // Root of your application
+.                             // Root of your application
 ├─ assets                     // Assets source directory
 │  ├─ index.js
 │  └─ index.scss
@@ -17,7 +17,7 @@ app                           // Root of your application
 
 ### Configuration file (`web-boost.json`)
 
-```json
+```text
 {
   "app": {                    // Application config object [Optional] 
     "views": "views",         // Templates directory [Optional, default: "views"]

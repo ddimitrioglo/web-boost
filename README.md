@@ -4,7 +4,7 @@
 
 ### Description
 
-Web-boost is a static site generator with page-speed optimisations. You build your site in a "dynamic way" by using 
+Web-boost is a static site generator with page-speed optimisations. You build your site in a dynamic way by using 
 `twig`, `scss` and routing - web-boost compile it into highly optimised static pages. 
 
 ### Usage

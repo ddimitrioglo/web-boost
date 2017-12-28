@@ -1,6 +1,6 @@
 {
   "name": "web-boost",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Static site generator with page-speed optimisations",
   "main": "index.js",
   "bin": {
@@ -9,7 +9,7 @@
   },
   "author": "ddimitrioglo",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "express": "^4.16.2",
     "forever-monitor": "^1.7.1",
     "fs-extra": "^5.0.0",

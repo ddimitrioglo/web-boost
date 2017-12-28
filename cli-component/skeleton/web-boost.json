@@ -22,10 +22,12 @@
         "title": "User's page",
         "greeting": "Hi John Duo!"
       },
-      "css/user.min.css": [
-        "styles/bootstrap.min.css",
-        "styles/user.scss"
-      ]
+      "assets": {
+        "css/user.min.css": [
+          "styles/bootstrap.min.css",
+          "styles/user.scss"
+        ]
+      }
     }
   }
 }

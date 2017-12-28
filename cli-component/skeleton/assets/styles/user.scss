@@ -1,5 +1,9 @@
 $primary-color: blue;
 
-h1 {
-  color: $primary-color;
+.jumbotron {
+  margin: 40px 20px;
+
+  h1 {
+    color: $primary-color;
+  }
 }
