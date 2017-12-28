@@ -1,6 +1,6 @@
 {
   "name": "web-boost-cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Web-boost application generator",
   "bin": {
     "web-boost-cli": "index.js"
