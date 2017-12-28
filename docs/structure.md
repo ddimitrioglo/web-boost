@@ -33,8 +33,8 @@
       },
       "assets": {             // Route specific assets [Optional, default: {}]
         "js/index.min.js": [  // Assets destination file (relative to "app.public")
-          "js/main.js",       // js/main.js + js/index.js => js/index.min.js
-          "js/index.js"
+          "js/main.js",       // Assets source files (relative to "app.assets")
+          "js/index.js"       // js/main.js + js/index.js => js/index.min.js
         ],
         "css/index.min.css": [
           "styles/main.scss", // styles/main.scss + styles/index.scss => css/index.min.css
