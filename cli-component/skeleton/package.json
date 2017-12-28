@@ -1,0 +1,12 @@
+{
+  "name": "web-boost-skeleton",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/.bin/wb-run",
+    "compile": "node node_modules/.bin/wb-compile"
+  },
+  "devDependencies": {
+    "web-boost": "^0.0.3"
+  }
+}

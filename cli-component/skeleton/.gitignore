@@ -1,0 +1,12 @@
+# IntelliJ files
+.idea
+
+# Dependency directories
+node_modules
+
+# Compiled files
+public/*
+!public/.gitkeep
+
+# Logs
+*.log

@@ -1,0 +1,16 @@
+{% extends 'layout.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('@css/index.min.css') }}" />
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron">
+        <h1>{{ greeting }}</h1>
+        <p>This is an example of homepage.</p>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="{{ asset('@js/index.min.js') }}"></script>
+{% endblock %}

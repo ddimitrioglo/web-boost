@@ -1,0 +1,8 @@
+# IntelliJ files
+.idea
+
+# Dependency directories
+node_modules
+
+# Logs
+*.log

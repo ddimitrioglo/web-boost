@@ -1,0 +1,12 @@
+{% extends 'layout.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('@css/user.min.css') }}" />
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron">
+        <h1>{{ greeting }}</h1>
+        <p>This is an example of user's page.</p>
+    </div>
+{% endblock %}

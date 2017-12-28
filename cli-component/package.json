@@ -1,0 +1,22 @@
+{
+  "name": "web-boost-cli",
+  "version": "0.0.2",
+  "description": "Web-boost application generator",
+  "bin": {
+    "web-boost-cli": "index.js"
+  },
+  "author": "ddimitrioglo",
+  "license": "MIT",
+  "preferGlobal": true,
+  "dependencies": {
+    "fs-extra": "^5.0.0"
+  },
+  "homepage": "https://github.com/ddimitrioglo/web-boost#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddimitrioglo/web-boost.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ddimitrioglo/web-boost/issues"
+  }
+}
