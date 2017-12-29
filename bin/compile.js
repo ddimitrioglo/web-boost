@@ -2,6 +2,9 @@
 
 'use strict';
 
+const imagemin = require('imagemin');
+const pngquant = require('imagemin-pngquant');
+const jpegRecompress = require('imagemin-jpeg-recompress');
 const Route = require('../src/route');
 const config = require('../src/config');
 const appPath = process.cwd();
@@ -22,6 +25,13 @@ const promises = [].concat(
  * Compile views & assets
  */
 Promise.all(promises).then(() => {
+  imagemin([`${config.getPath('app.assets', 'img')}/*.{jpg,png}`], config.getPath('app.public', 'img'), {
+    plugins: [
+      jpegRecompress({ method: 'smallfry' }),
+      pngquant({ quality: '65-80' })
+    ]
+  })
+}).then(() => {
   console.log('Compilation finished');
 }).catch(err => {
   throw err;

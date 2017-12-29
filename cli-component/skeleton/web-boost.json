@@ -20,7 +20,7 @@
       "view": "user.twig",
       "vars": {
         "title": "User's page",
-        "greeting": "Hi John Duo!"
+        "greeting": "Hi John Doe!"
       },
       "assets": {
         "css/user.min.css": [

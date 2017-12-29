@@ -19,6 +19,7 @@ config.init(appPath);
  */
 app.set('views', config.getPath('app.views'));
 app.use('/', express.static(config.getPath('app.public')));
+app.use('/img', express.static(config.getPath('app.assets', 'img')));
 
 /**
  * Init web-boost routes
