@@ -5,18 +5,23 @@
 ### Description
 
 Web-boost is a static site generator with page-speed optimisations. You build a dynamic site by using `twig`, `scss` 
-and routing - web-boost will compile it into highly optimised static pages. 
+and routing - web-boost will compile it into highly optimised static pages.
+
+* Uglify, concat & minify `javascript` files
+* Compile, concat & minify `scss`/`css` files
+* Compile & minify `twig` templates
+* Optimise `.jpg` and `.png` files
 
 ### Usage
 
 * Generate application with `web-boost-cli` (see [user guide][1]) or create it yourself by following the [structure][2]
 * Install dependencies: `npm install`
 * Run the application: `npm run start` and go to [localhost:8080][3]
-* Compile dynamic pages into static: `npm run compile`
+* Prepare for deploy: `npm run compile`
 
 ### @todo:
 
-* Add image optimiser
+* Add video tutorial
 * Craft a logo
 * Add unit tests
 * Get rid of express.js (find simple router lib)

@@ -3,8 +3,9 @@
 ### App structure
 
 ```text
-.                             // Root of your application
+app                           // Root of your application
 ├─ assets                     // Assets source directory
+│  ├─ img                     // Image folder
 │  ├─ index.js
 │  └─ index.scss
 ├─ views                      // Templates directory
@@ -14,6 +15,7 @@
 ├─ web-boost.json             // Web-boost configuration file
 └─ package.json
 ```
+> Image folder is always `img` which is relative to "app.assets" (supported `.jpg` and `.png`)
 
 ### Configuration file (`web-boost.json`)
 

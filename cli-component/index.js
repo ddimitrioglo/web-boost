@@ -8,7 +8,7 @@ const path = require('path');
 let [ appName, destination ] = process.argv.slice(2);
 
 if (!appName || !destination) {
-  console.log(`Usage: web-boost-cli <app-name> <path/to/app>`);
+  console.log(`Usage: web-boost-cli [app-name] [path]`);
   process.exit(1);
 }
 
