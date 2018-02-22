@@ -1,5 +1,7 @@
 # web-boost
 
+<img src="https://github.com/ddimitrioglo/web-boost/blob/dev/web-boost-logo.svg" alt="Drawing" style="width: 100px;"/>
+
 `web-boost` - boost your static site development.
 
 ### Description
@@ -22,7 +24,6 @@ and routing - web-boost will compile it into highly optimised static pages.
 ### @todo:
 
 * Add video tutorial
-* Craft a logo
 * Add unit tests
 * Get rid of express.js (find simple router lib)
 
