@@ -34,6 +34,11 @@ and routing - web-boost will compile it into highly optimised static pages.
 
 We will get back to you as soon as possible.
 
+### Credits
+
+* Logo author [@3ab2ou](https://twitter.com/3ab2ou)
+* Logo adjustments [@tkaciuk](https://github.com/tkaciuk)
+
 ### License
 
 This repository can be used under the MIT license.
