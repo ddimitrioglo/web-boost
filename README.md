@@ -1,6 +1,6 @@
 # web-boost
 
-<img src="https://github.com/ddimitrioglo/web-boost/blob/dev/web-boost-logo.svg" alt="Drawing" style="width: 100px;"/>
+<img src="https://github.com/ddimitrioglo/web-boost/blob/dev/web-boost-logo.svg" width="200"/>
 
 `web-boost` - boost your static site development.
 
