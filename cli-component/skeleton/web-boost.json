@@ -1,4 +1,10 @@
 {
+  "$": {
+    "common": [
+      "styles/bootstrap.min.css",
+      "styles/base.scss"
+    ]
+  },
   "routes": {
     "/": {
       "view": "index.twig",
@@ -11,7 +17,7 @@
           "js/index.js"
         ],
         "css/index.min.css": [
-          "styles/bootstrap.min.css",
+          "$.common",
           "styles/index.scss"
         ]
       }

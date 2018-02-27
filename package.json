@@ -1,11 +1,11 @@
 {
   "name": "web-boost",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Static site generator with page-speed optimisations",
   "main": "index.js",
   "bin": {
-    "wb-run": "./bin/run.js",
-    "wb-compile": "./bin/compile.js"
+    "wb-run": "./bin/run",
+    "wb-compile": "./bin/compile"
   },
   "author": "ddimitrioglo",
   "license": "MIT",

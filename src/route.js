@@ -74,7 +74,12 @@ class Route {
    * @private
    */
   _concatAssetsTo(assets, outAsset) {
-    let promises = assets.map(assetPath => {
+    let assetsList = [];
+    assets.forEach(asset => {
+      assetsList.push(...asset.startsWith('$.') ? config.get(asset) : [asset]);
+    });
+
+    let promises = assetsList.map(assetPath => {
       return AssetFactory.create(
         new File(config.getPath('app.assets', assetPath))
       );
