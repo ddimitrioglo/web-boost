@@ -73,7 +73,7 @@ class File {
    */
   getLocalContent() {
     return new Promise((resolve, reject) => {
-      fse.readFile(this.fullPath(), null, (err, data) => {
+      fse.readFile(this.fullPath(), (err, data) => {
         return err ? reject(err) : resolve(data);
       });
     });

@@ -7,6 +7,7 @@ const pngquant = require('imagemin-pngquant');
 const jpegRecompress = require('imagemin-jpeg-recompress');
 const Route = require('../src/route');
 const config = require('../src/config');
+const logger = require('../src/logger');
 const appPath = process.cwd();
 
 /**
@@ -32,7 +33,7 @@ Promise.all(promises).then(() => {
     ]
   })
 }).then(() => {
-  console.log('Compilation finished');
+  logger.log('Compilation finished');
 }).catch(err => {
   throw err;
 });

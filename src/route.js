@@ -13,8 +13,8 @@ class Route {
   constructor(path, options) {
     this._path = path;
     this._view = options.view;
-    this._vars = options.vars || {};
     this._assets = options.assets || {};
+    this._vars = Object.assign({ routeName: path }, options.vars);
   }
 
   /**
@@ -80,9 +80,9 @@ class Route {
     });
 
     let promises = assetsList.map(assetPath => {
-      return AssetFactory.create(
-        new File(config.getPath('app.assets', assetPath))
-      );
+      const file = new File(config.getPath('app.assets', assetPath));
+
+      return AssetFactory.create(file);
     }).map(asset => {
       return asset.minify().then(content => Promise.resolve(Buffer.from(content, 'utf8')));
     });

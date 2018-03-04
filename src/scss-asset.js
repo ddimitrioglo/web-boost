@@ -6,9 +6,12 @@ const AbstractAsset = require('./abstract-asset');
 class ScssAsset extends AbstractAsset {
   /**
    * @param {File} file
+   * @param {Object} config
    */
-  constructor(file) {
+  constructor(file, config = {}) {
     super(file);
+
+    this._config = config;
   }
 
   /**
@@ -24,7 +27,9 @@ class ScssAsset extends AbstractAsset {
       }
 
       return new Promise((resolve, reject) => {
-        sass.render({ data: styles, outputStyle: 'compressed' }, (err, res) => {
+        const config = Object.assign({ data: styles, outputStyle: 'compressed' }, this._config);
+
+        sass.render(config, (err, res) => {
           if (err) {
             return reject(err);
           }

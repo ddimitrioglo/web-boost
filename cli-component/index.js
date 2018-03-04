@@ -14,16 +14,15 @@ if (!appName || !destination) {
 
 const sourcePath = path.join(__dirname, 'skeleton');
 const destinationPath = path.resolve(process.cwd(), destination);
+const appPackageJson = path.join(destination, 'package.json');
 
 fse.copy(sourcePath, destinationPath).then(() => {
-  const packageSrc = JSON.parse(
-    fs.readFileSync(path.join(destination, 'package.json.tmpl'))
-  );
-  const packageOut = JSON.stringify(
-    packageSrc, (key, val) => (key === 'name') ? appName : val, 2
-  );
+  fs.renameSync(`${appPackageJson}.tmpl`, appPackageJson);
 
-  fs.writeFileSync(path.join(destination, 'package.json'), packageOut);
+  const packageSrc = JSON.parse(fs.readFileSync(appPackageJson));
+  const packageOut = JSON.stringify(packageSrc, (key, val) => (key === 'name') ? appName : val, 2);
+
+  fs.writeFileSync(appPackageJson, packageOut);
 
   console.log(`${appName} successfully generated (cd ${destinationPath})`);
 }).catch(err => {
