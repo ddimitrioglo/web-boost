@@ -17,8 +17,10 @@ const destinationPath = path.resolve(process.cwd(), destination);
 const appPackageJson = path.join(destination, 'package.json');
 
 fse.copy(sourcePath, destinationPath).then(() => {
-  let packageSrc = JSON.parse(fs.readFileSync(appPackageJson));
-  let packageOut = JSON.stringify(packageSrc, (key, val) => (key === 'name') ? appName : val, 2);
+  fs.renameSync(`${appPackageJson}.tmpl`, appPackageJson);
+
+  const packageSrc = JSON.parse(fs.readFileSync(appPackageJson));
+  const packageOut = JSON.stringify(packageSrc, (key, val) => (key === 'name') ? appName : val, 2);
 
   fs.writeFileSync(appPackageJson, packageOut);
 

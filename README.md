@@ -1,6 +1,6 @@
 # web-boost
 
-<img src="https://github.com/ddimitrioglo/web-boost/blob/dev/web-boost-logo.svg" width="200"/>
+<img src="https://cdn.rawgit.com/ddimitrioglo/web-boost/master/web-boost-logo.svg" width="200"/>
 
 `web-boost` - boost your static site development.
 
@@ -10,9 +10,17 @@ Web-boost is a static site generator with page-speed optimisations. You build a 
 and routing - web-boost will compile it into highly optimised static pages.
 
 * Uglify, concat & minify `javascript` files
-* Compile, concat & minify `scss`/`css` files
+* Compile, concat & minify `css`/`scss`/`sass` files
 * Compile & minify `twig` templates
 * Optimise `.jpg` and `.png` files
+
+> To speed-up compilation, all the minified files (`.min.css` and `.min.js`) will be just concatenated
+
+### Installation
+
+`npm install -g web-boost`
+
+> Global installation is preferable but not required
 
 ### Usage
 

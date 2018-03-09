@@ -1,9 +1,9 @@
 {
   "name": "web-boost-cli",
-  "version": "0.0.5",
+  "version": "1.0.3",
   "description": "Web-boost application generator",
   "bin": {
-    "web-boost-cli": "index.js"
+    "web-boost-cli": "./index.js"
   },
   "author": "ddimitrioglo",
   "license": "MIT",
