@@ -4,9 +4,10 @@
 # Dependency directories
 node_modules
 
-# Compiled files
-public/*
-!public/.gitkeep
+# Compiled files (you may need to change them)
+build/
+static/js/
+static/css/
 
 # Logs
 *.log

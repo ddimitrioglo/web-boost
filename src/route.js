@@ -44,7 +44,7 @@ class Route {
    */
   compileView() {
     const viewSrc = config.getPath('app.views', this.getView());
-    const viewOut = config.getPath('app.public', this.getPath(), 'index.html');
+    const viewOut = config.getPath('app.build', this.getPath(), 'index.html');
     const twigAsset = new TwigAsset(new File(viewSrc), this.getVars());
 
     return twigAsset.minify().then(html => {
@@ -88,7 +88,7 @@ class Route {
     });
 
     return Promise.all(promises).then(buffers => {
-      const outAssetFile = new File(config.getPath('app.public', outAsset));
+      const outAssetFile = new File(config.getPath('app.static', outAsset));
 
       return outAssetFile.setContent(Buffer.concat(buffers));
     });
