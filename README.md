@@ -20,7 +20,7 @@ language, CSS preprocessor and routing - web-boost will compile it into highly o
 
 Try the demo application to learn `web-boost` in practice.
 
-[![asciicast](https://asciinema.org/a/169719.png)](https://asciinema.org/a/169719)
+<a href="https://asciinema.org/a/169719"><img src="https://asciinema.org/a/169719.png" width="400" /></a>
 
 > You can also build your application by following the [structure][2]
 
