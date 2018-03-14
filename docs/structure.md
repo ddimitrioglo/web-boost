@@ -4,19 +4,17 @@
 
 ```text
 app/                          # Root of your application
-├─ assets/                    # Source directory for all assets
-│  ├─ img/                    # Image folder
-│  ├─ fonts/                  # Fonts folder
+├─ assets/                    # Assets directory (scss/sass/js, needs pre-processing)
 │  ├─ index.js
 │  └─ index.scss
+├─ static/                    # Static files directory (fonts/images/static data, serves as is)
 ├─ views/                     # Templates directory
 │  ├─ index.twig
 │  └─ layout.twig
-├─ public/                    # Destination directory for compiled/minimized assets 
+├─ build/                     # Application build directory (static web site) 
 ├─ web-boost.json             # Web-boost configuration file
 └─ package.json
 ```
-> Image folder is **always** `img` (**not** `imgs`, `images` etc.) which is relative to "app.assets" (supported `.jpg` and `.png`)
 
 ### Configuration file (`web-boost.json`)
 
@@ -30,7 +28,9 @@ app/                          # Root of your application
   },
   "app": {                    # Application config object [Optional] 
     "views": "views",         # Templates directory [Optional, default: "views"]
-    "assets": "assets"        # Assets source directory [Optional, default: "assets"]
+    "build": "build",         # Build directory [Optional, default: "build"]
+    "assets": "assets",       # Assets source directory [Optional, default: "assets"]
+    "static": "static"        # Static files directory [Optional, default: "static"]
   },
   "routes": {                 # A list of web-boost application routes [Required]
     "/": {                    # Route slug [Required]
