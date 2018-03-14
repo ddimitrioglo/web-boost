@@ -12,8 +12,9 @@ class Config {
     this._defaults = {
       app: {
         views: 'views',
+        build: 'build',
         assets: 'assets',
-        public: 'public'
+        static: 'static'
       }
     };
   }
