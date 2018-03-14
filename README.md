@@ -1,6 +1,6 @@
 # web-boost
 
-<img src="https://cdn.rawgit.com/ddimitrioglo/web-boost/master/logo.svg" width="200"/>
+<img src="https://rawgit.com/ddimitrioglo/web-boost/master/logo.svg" width="200"/>
 
 `web-boost` - boost your static site development.
 
