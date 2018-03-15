@@ -26,13 +26,14 @@ Try the demo application to learn `web-boost` in practice.
 
 ### Commands
 
-* Run the application - `npm run start`
-* Prepare for deploy - `npm run compile`
-* Generate `sitemap.xml` - TBU... 
+* Run the application: `wb-run`<sup>\*</sup> or `node node_modules/web-boost/bin/run.js`<sup>\*\*</sup>
+* Prepare for deploy: `wb-compile`<sup>\*</sup> or `node node_modules/web-boost/bin/compile.js`<sup>\*\*</sup>
+* Generate sitemap.xml: `wb-sitemap`<sup>\*</sup> or `node node_modules/web-boost/bin/sitemap.js`<sup>\*\*</sup>
+
+> `*` if web-boost is installed globally, `**` - locally
 
 ### @todo:
 
-* Add `sitemap.xml` generator
 * Add unit tests
 * Get rid of express.js (find simple router lib)
 
