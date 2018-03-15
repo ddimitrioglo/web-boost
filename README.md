@@ -26,9 +26,9 @@ Try the demo application to learn `web-boost` in practice.
 
 ### Commands
 
-* Run the application: `wb-run`<sup>\*</sup> or `node node_modules/web-boost/bin/run.js`<sup>\*\*</sup>
-* Prepare for deploy: `wb-compile`<sup>\*</sup> or `node node_modules/web-boost/bin/compile.js`<sup>\*\*</sup>
-* Generate sitemap.xml: `wb-sitemap`<sup>\*</sup> or `node node_modules/web-boost/bin/sitemap.js`<sup>\*\*</sup>
+* Run the application: `wb-run`* or `node node_modules/web-boost/bin/run.js`**
+* Prepare for deploy: `wb-compile`* or `node node_modules/web-boost/bin/compile.js`**
+* Generate sitemap.xml: `wb-sitemap`* or `node node_modules/web-boost/bin/sitemap.js`**
 
 > `*` if web-boost is installed globally, `**` - locally
 
