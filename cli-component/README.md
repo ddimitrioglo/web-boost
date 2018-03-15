@@ -12,4 +12,10 @@ Try the demo application to learn `web-boost` in practice.
 
 [![asciicast](https://asciinema.org/a/169719.png)](https://asciinema.org/a/169719)
 
+### Available commands
+
+* Run the application: `npm run start`
+* Prepare for deploy: `npm run compile`
+* Generate sitemap.xml: `npm run sitemap` 
+
 [1]: https://www.npmjs.com/package/web-boost
