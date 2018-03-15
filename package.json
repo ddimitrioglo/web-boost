@@ -1,6 +1,6 @@
 {
   "name": "web-boost",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Static site generator with page-speed optimisations",
   "main": "index.js",
   "bin": {
