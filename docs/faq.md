@@ -1,9 +1,15 @@
 # Frequently asked questions
 
-* **How do I get the route name from the template?**
+<details>
+<summary>How do I get the route name from the template?</summary>
 
-    Yes, there is a build-in variable `routeName`, so you can use it in your templates `{{ routeName }}`
+There is a build-in variable `routeName`, so you can just use it in your templates `{{ routeName }}`
 
-* **Is @import supported in .scss/.sass files?**
+</details>
 
-    Yes, just provide a path related to "app.assets" directory. Ex: `@import './styles/variables';`
+<details>
+<summary>Is @import supported in .scss/.sass files?</summary>
+
+Yes, just provide a path related to "app.assets" directory. Ex: `@import './styles/variables';`
+
+</details>
