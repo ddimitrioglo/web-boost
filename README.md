@@ -34,7 +34,6 @@ Try the demo application to learn `web-boost` in practice.
 
 ### @todo:
 
-* Find a better router (maybe [simples](https://www.npmjs.com/package/simples)?)
 * Find a better watcher (maybe [node-watch](https://www.npmjs.com/package/node-watch)?)
 * Add unit tests
 
