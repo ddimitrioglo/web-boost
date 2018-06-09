@@ -34,7 +34,6 @@ Try the demo application to learn `web-boost` in practice.
 
 ### @todo:
 
-* Find a better router (maybe [simples](https://www.npmjs.com/package/simples)?)
 * Find a better watcher (maybe [node-watch](https://www.npmjs.com/package/node-watch)?)
 * Add unit tests
 
@@ -49,6 +48,11 @@ We will get back to you as soon as possible.
 
 * Logo author [@3ab2ou](https://twitter.com/3ab2ou)
 * Logo adjustments [@tkaciuk](https://github.com/tkaciuk)
+
+### Projects using `web-boost`
+
+* [www.404.md](https://wwww.404.md)
+* [www.terrahub.io](https://www.terrahub.io)
 
 ### License
 

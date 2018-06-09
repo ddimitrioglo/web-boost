@@ -5,9 +5,8 @@
 const Route = require('./src/route');
 const config = require('./src/config');
 const logger = require('./src/logger');
-const express = require('express');
-
-const app = express();
+const Twig = require('./helpers/twig');
+const simples = require('simples');
 const [ port, appPath ] = process.argv.slice(2);
 
 /**
@@ -16,10 +15,10 @@ const [ port, appPath ] = process.argv.slice(2);
 config.init(appPath);
 
 /**
- * App configuration
+ * Create simple server
  */
-app.set('views', config.getPath('app.views'));
-app.use(express.static(config.getPath('app.static')));
+const server = simples(parseInt(port));
+server.serve(config.getPath('app.static'));
 
 /**
  * Init web-boost routes
@@ -38,15 +37,27 @@ Promise.all(appRoutes.map(route => route.packAssets()))
  * Init app routes
  */
 appRoutes.forEach(route => {
-  app.get(route.getPath(), (req, res) => {
-    res.render(route.getView(), route.getVars());
+  server.get(route.getPath(), connection => {
+    renderView(route.getView(), route.getVars()).then(html => {
+      connection.end(html);
+    });
   });
 });
 
 /**
- * Listen server
+ * @param {String} view
+ * @param {Object} vars
+ * @returns {Promise}
  */
-app.listen(port);
+function renderView(view, vars) {
+  return new Promise((resolve, reject) => {
+    const viewPath = config.getPath('app.views', view);
+
+    Twig.renderFile(viewPath, vars, (err, data) => {
+      return err ? reject(err) : resolve(data);
+    });
+  });
+}
 
 /**
  * @param {Error} error
