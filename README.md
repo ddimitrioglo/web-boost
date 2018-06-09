@@ -49,6 +49,11 @@ We will get back to you as soon as possible.
 * Logo author [@3ab2ou](https://twitter.com/3ab2ou)
 * Logo adjustments [@tkaciuk](https://github.com/tkaciuk)
 
+### Projects using `web-boost`
+
+* [www.404.md](https://wwww.404.md)
+* [www.terrahub.io](https://www.terrahub.io)
+
 ### License
 
 This repository can be used under the MIT license.
