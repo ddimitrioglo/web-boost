@@ -51,7 +51,7 @@ We will get back to you as soon as possible.
 
 ### Projects using `web-boost`
 
-* [www.404.md](https://wwww.404.md)
+* [www.404.md](https://www.404.md)
 * [www.terrahub.io](https://www.terrahub.io)
 
 ### License
