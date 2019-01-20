@@ -1,72 +1,54 @@
-#!/usr/bin/env node
-
 'use strict';
 
-const Route = require('./src/route');
+const http = require('http');
+const router = require('./src/router');
 const config = require('./src/config');
 const logger = require('./src/logger');
-const Twig = require('./helpers/twig');
-const simples = require('simples');
-const [ port, appPath ] = process.argv.slice(2);
+const Compiler = require('./src/compiler');
 
-/**
- * Init web-boost config
- */
-config.init(appPath);
-
-/**
- * Create simple server
- */
-const server = simples(parseInt(port));
-server.serve(config.getPath('app.static'));
-
-/**
- * Init web-boost routes
- */
+const assets = {};
+const port = config.get('server.port');
 const routes = config.get('routes');
-const appRoutes = Object.keys(routes).map(route => new Route(route, routes[route]));
+const staticPath = config.getPath('app.static');
 
-/**
- * Trigger assets compilation
- */
-Promise.all(appRoutes.map(route => route.packAssets()))
-  .then(() => logger.info('Ok'))
-  .catch(err => handleError(err));
+router.setStatic(staticPath);
 
-/**
- * Init app routes
- */
-appRoutes.forEach(route => {
-  server.get(route.getPath(), connection => {
-    renderView(route.getView(), route.getVars()).then(html => {
-      connection.end(html);
-    });
+Object.keys(routes).forEach(route => {
+  router.register(route, () => {
+    const params = routes[route];
+    const view = config.getPath('app.views', params.view);
+    const vars = Object.assign({ routeName: route }, params.vars);
+
+    return compile(route)
+      .then(() => config.renderView(view, vars))
+      .then(html => Promise.resolve({ body: html }));
   });
 });
 
-/**
- * @param {String} view
- * @param {Object} vars
- * @returns {Promise}
- */
-function renderView(view, vars) {
-  return new Promise((resolve, reject) => {
-    const viewPath = config.getPath('app.views', view);
+const server = http.createServer((req, res) => {
+  router.route(req, res);
+});
 
-    Twig.renderFile(viewPath, vars, (err, data) => {
-      return err ? reject(err) : resolve(data);
-    });
-  });
-}
+server.listen(port);
+
+// @todo Move this into router's method
+process.on('message', message => {
+  if (message === 'restart') {
+    process.exit(0);
+  }
+});
 
 /**
- * @param {Error} error
+ * Lazy assets compile
+ * @param {String} route
+ * @return {Promise}
  */
-function handleError(error) {
-  let errorMsg = error.message;
-  if (error.code === 'ENOENT') {
-    errorMsg = `${error.path.replace(`${appPath}/`, '@')} does not exist`;
+function compile(route) {
+  if (assets.hasOwnProperty(route)) {
+    return Promise.resolve();
   }
 
-  logger.error(errorMsg);
+  assets[route] = true;
+  logger.info('Preparing assets...');
+  return (new Compiler(route, routes[route])).packAssets();
 }

@@ -16,7 +16,7 @@ class File {
 
   /**
    * Get url object (if path is remote)
-   * @returns {Url|boolean}
+   * @return {Url|boolean}
    */
   url() {
     return this.isRemote() ? this._url : false;
@@ -24,7 +24,7 @@ class File {
 
   /**
    * Get file's absolute path (if it's local)
-   * @returns {String|Boolean}
+   * @return {String|Boolean}
    */
   fullPath() {
     return this.isRemote() ? false : path.resolve(this._fullPath);
@@ -61,7 +61,7 @@ class File {
   /**
    * Set content to the local file
    * @param {String|Buffer} content
-   * @returns {Promise}
+   * @return {Promise}
    */
   setContent(content) {
     return fse.outputFile(this.fullPath(), content.toString());

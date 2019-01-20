@@ -8,19 +8,19 @@ const path = require('path');
 const logger = require('../src/logger');
 const config = require('../src/config');
 
-const appPath = process.cwd();
 const [ domain ] = process.argv.slice(2);
-const URL = url.parse(domain);
 
-if (!URL.protocol) {
-  logger.error('Domain format: http(s)://domain.com');
+if (!domain) {
+  logger.error('Domain is required');
   process.exit(1);
 }
 
-/**
- * Init web-boost config
- */
-config.init(appPath);
+const URL = url.parse(domain);
+
+if (!URL.protocol) {
+  logger.error('Required domain format: http(s)://domain.com');
+  process.exit(1);
+}
 
 const today = new Date();
 const origin = `${URL.protocol}//${URL.hostname}`;

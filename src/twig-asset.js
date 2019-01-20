@@ -1,8 +1,8 @@
 'use strict';
 
-const Twig = require('../helpers/twig');
 const { minify } = require('html-minifier');
 const AbstractAsset = require('./abstract-asset');
+const { renderView } = require('./config');
 
 class TwigAsset extends AbstractAsset {
   /**
@@ -20,15 +20,7 @@ class TwigAsset extends AbstractAsset {
    * @returns {Promise}
    */
   rawContent() {
-    return new Promise((resolve, reject) => {
-      Twig.renderFile(this.file().fullPath(), this._vars, (err, html) => {
-        if (err) {
-          return reject(err);
-        }
-
-        resolve(html);
-      });
-    });
+    return renderView(this.file().fullPath(), this._vars);
   }
 
   /**
@@ -36,15 +28,11 @@ class TwigAsset extends AbstractAsset {
    * @returns {Promise}
    */
   minify() {
-    return this.rawContent().then(html => {
-      return Promise.resolve(
-        minify(html, {
-          removeComments: true,
-          collapseWhitespace: true,
-          removeStyleLinkTypeAttributes: true
-        })
-      );
-    });
+    return this.rawContent().then(html => minify(html, {
+      removeComments: true,
+      collapseWhitespace: true,
+      removeStyleLinkTypeAttributes: true
+    }));
   }
 }
 
