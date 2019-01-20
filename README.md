@@ -26,7 +26,7 @@ language, CSS preprocessor and routing - web-boost will compile it into highly o
 
 Try the demo application to learn `web-boost` in practice.
 
-[![asciicast](https://asciinema.org/a/169719.png)](https://asciinema.org/a/169719)
+[![asciicast](https://asciinema.org/a/222630.png)](https://asciinema.org/a/222630)
 
 > You can also build your application by following the [structure][1]
 
