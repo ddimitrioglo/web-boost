@@ -1,9 +1,7 @@
 {
-  "$": {
-    "common": [
-      "styles/bootstrap.min.css",
-      "styles/base.scss"
-    ]
+  "server": {
+    "port": 8000,
+    "ignorePatterns": ["build"]
   },
   "routes": {
     "/": {
@@ -17,7 +15,8 @@
           "js/index.js"
         ],
         "css/index.min.css": [
-          "$.common",
+          "styles/bootstrap.min.css",
+          "styles/base.scss",
           "styles/index.scss"
         ]
       }

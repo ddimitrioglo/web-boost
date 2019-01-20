@@ -5,37 +5,16 @@ const config = require('./config');
 const TwigAsset = require('./twig-asset');
 const AssetFactory = require('./asset-factory');
 
-class Route {
+class Compiler {
   /**
-   * @param {String} path
+   * @param {String} route
    * @param {Object} options
    */
-  constructor(path, options) {
-    this._path = path;
+  constructor(route, options) {
     this._view = options.view;
+    this._route = route;
     this._assets = options.assets || {};
-    this._vars = Object.assign({ routeName: path }, options.vars);
-  }
-
-  /**
-   * @return {String}
-   */
-  getPath() {
-    return this._path;
-  }
-
-  /**
-   * @return {String}
-   */
-  getView() {
-    return this._view;
-  }
-
-  /**
-   * @return {Object}
-   */
-  getVars() {
-    return this._vars;
+    this._vars = Object.assign({ routeName: route }, options.vars);
   }
 
   /**
@@ -43,9 +22,9 @@ class Route {
    * @return {Promise}
    */
   compileView() {
-    const viewSrc = config.getPath('app.views', this.getView());
-    const viewOut = config.getPath('app.build', this.getPath(), 'index.html');
-    const twigAsset = new TwigAsset(new File(viewSrc), this.getVars());
+    const viewSrc = config.getPath('app.views', this._view);
+    const viewOut = config.getPath('app.build', this._route, 'index.html');
+    const twigAsset = new TwigAsset(new File(viewSrc), this._vars);
 
     return twigAsset.minify().then(html => {
       const outFile = new File(viewOut);
@@ -70,16 +49,11 @@ class Route {
    * Minify and concat assets
    * @param {Array} assets
    * @param {String} outAsset
-   * @returns {Promise}
+   * @return {Promise}
    * @private
    */
   _concatAssetsTo(assets, outAsset) {
-    let assetsList = [];
-    assets.forEach(asset => {
-      assetsList.push(...asset.startsWith('$.') ? config.get(asset) : [asset]);
-    });
-
-    let promises = assetsList.map(assetPath => {
+    const promises = assets.map(assetPath => {
       const file = new File(config.getPath('app.assets', assetPath));
 
       return AssetFactory.create(file);
@@ -95,4 +69,4 @@ class Route {
   }
 }
 
-module.exports = Route;
+module.exports = Compiler;

@@ -13,3 +13,11 @@ There is a build-in variable `routeName`, so you can just use it in your templat
 Yes, just provide a path related to "app.assets" directory. Ex: `@import './styles/variables';`
 
 </details>
+
+<details>
+<summary>How to add custom functions or filters for twig?</summary>
+
+Just add an additional `.js` file in your project and provide the path in `web-boost` config file.
+See details [here](./templates.md)
+
+</details>
