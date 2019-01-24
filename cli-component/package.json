@@ -1,6 +1,6 @@
 {
   "name": "web-boost-cli",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "Web-boost application generator",
   "keywords": [ "static-site-generator" ],
   "bin": {
@@ -10,7 +10,7 @@
   "license": "MIT",
   "preferGlobal": true,
   "dependencies": {
-    "fs-extra": "^5.0.0"
+    "fs-extra": "^7.0.1"
   },
   "homepage": "https://github.com/ddimitrioglo/web-boost#readme",
   "repository": {

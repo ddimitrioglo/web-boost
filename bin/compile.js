@@ -5,24 +5,19 @@
 const fse = require('fs-extra');
 const path = require('path');
 const glob = require('glob');
-const Route = require('../src/route');
 const config = require('../src/config');
 const logger = require('../src/logger');
+const Compiler = require('../src/compiler');
 const imagemin = require('imagemin');
 const pngquant = require('imagemin-pngquant');
 const jpegRecompress = require('imagemin-jpeg-recompress');
 
-/**
- * Init web-boost config
- */
-config.init(process.cwd());
-
 const routes = config.get('routes');
 const buildPath = config.getPath('app.build');
-const appRoutes = Object.keys(routes).map(route => new Route(route, routes[route]));
+const compilers = Object.keys(routes).map(route => new Compiler(route, routes[route]));
 const promises = [].concat(
-  appRoutes.map(route => route.compileView()),
-  appRoutes.map(route => route.packAssets())
+  compilers.map(route => route.compileView()),
+  compilers.map(route => route.packAssets())
 );
 
 /**

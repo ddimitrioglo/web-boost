@@ -10,21 +10,21 @@ class AbstractAsset {
 
   /**
    * Get file object
-   * @returns {File}
+   * @return {File}
    */
   file() {
     return this._file;
   }
 
   /**
-   * @returns {Promise}
+   * @return {Promise}
    */
   rawContent() {
     return this._file.getContent();
   }
 
   /**
-   * @returns {Promise}
+   * @return {Promise}
    */
   minify() {
     return Promise.reject(new Error(

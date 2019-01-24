@@ -16,13 +16,19 @@ language, CSS preprocessor and routing - web-boost will compile it into highly o
 
 > To speed-up compilation, all the minified files (`.min.css` and `.min.js`) will be just concatenated
 
+### Installation
+
+`npm install -g web-boost` (Global installation is optional)
+
+> Linux users should previously install `sudo apt-get install libpng-dev`
+
 ### Demo application
 
 Try the demo application to learn `web-boost` in practice.
 
-[![asciicast](https://asciinema.org/a/169719.png)](https://asciinema.org/a/169719)
+[![asciicast](https://asciinema.org/a/222630.png)](https://asciinema.org/a/222630)
 
-> You can also build your application by following the [structure][2]
+> You can also build your application by following the [structure][1]
 
 ### Commands
 
@@ -34,12 +40,12 @@ Try the demo application to learn `web-boost` in practice.
 
 ### @todo:
 
-* Find a better watcher (maybe [node-watch](https://www.npmjs.com/package/node-watch)?)
 * Add unit tests
+* Investigate [consolidate.js][2]
 
 ### Improvements
 
-* If you are facing some issues, please check [FAQs][4], or don't hesitate to open an issue
+* If you are facing some issues, please check [FAQs][3], or don't hesitate to open an issue
 * If you have an idea how to improve this module, feel free to contribute or open an issue with `enhancement` label
 
 We will get back to you as soon as possible.
@@ -53,14 +59,14 @@ We will get back to you as soon as possible.
 
 * [www.404.md](https://www.404.md)
 * [www.terrahub.io](https://www.terrahub.io)
+* [www.mitocgroup.com](https://www.mitocgroup.com)
 
 ### License
 
 This repository can be used under the MIT license.
-> See [LICENSE][5] for more details.
+> See [LICENSE][4] for more details.
 
-[1]: https://github.com/ddimitrioglo/web-boost/blob/master/cli-component/README.md#web-boost-cli
-[2]: https://github.com/ddimitrioglo/web-boost/blob/master/docs/structure.md#web-boost-application
-[3]: http://localhost:8080
-[4]: https://github.com/ddimitrioglo/web-boost/blob/master/docs/faq.md
-[5]: https://github.com/ddimitrioglo/web-boost/blob/master/docs/LICENSE
+[1]: https://github.com/ddimitrioglo/web-boost/blob/master/docs/structure.md#web-boost-application
+[2]: https://www.npmjs.com/package/consolidate
+[3]: https://github.com/ddimitrioglo/web-boost/blob/master/docs/faq.md
+[4]: https://github.com/ddimitrioglo/web-boost/blob/master/docs/LICENSE

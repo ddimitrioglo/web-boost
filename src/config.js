@@ -1,55 +1,89 @@
 'use strict';
 
+const fs = require('fs');
 const path = require('path');
+const Twig = require('twig');
+const { extend } = require('./util');
 
 class Config {
   /**
    * Constructor
    */
   constructor() {
-    this._config = {};
-    this._cfgFile = 'web-boost.json';
-    this._defaults = {
+    const appPath = process.cwd();
+    const wbConfig = require(path.join(appPath, 'web-boost'));
+    const defaults = {
+      template: {
+        engine: 'twig', // useless till consolidate.js is integrated
+        extensions: ''
+      },
+      server: {
+        port: 8080,
+        delay: 2000,
+        retries: 3,
+        ignorePatterns: ['node_modules']
+      },
       app: {
+        path: appPath,
         views: 'views',
         build: 'build',
         assets: 'assets',
         static: 'static'
       }
     };
-  }
 
-  /**
-   * Init web-boost application
-   * @param appPath
-   */
-  init(appPath) {
-    const config = require(path.join(appPath, this.cfgFile()));
-
-    this.setConfig(config);
-    this.set('app.path', appPath);
-  }
-
-  /**
-   * Web-boost config file
-   * @return {string}
-   */
-  cfgFile() {
-    return this._cfgFile;
+    this._config = extend({}, defaults, wbConfig);
+    this.initTemplate();
   }
 
   /**
    * @returns {Object}
    */
-  getConfig() {
-    return this._config;
+  initTemplate() {
+    let extPath = path.join(this._config.app.path, this._config.template.extensions);
+    let extensions = {};
+
+    if (fs.existsSync(extPath) && fs.statSync(extPath).isFile()) {
+      extensions = require(extPath);
+    }
+
+    if (!extensions.hasOwnProperty('extendFunction')) {
+      extensions.extendFunction = {};
+    }
+
+    // Add asset function by default
+    extensions.extendFunction.asset = (asset) => asset.replace(/^@/, '/');
+
+    Object.keys(extensions).forEach(method => {
+      Object.keys(extensions[method]).forEach(alias => {
+        Twig[method].apply(null, [alias, extensions[method][alias]]);
+      });
+    });
   }
 
   /**
-   * @param {Object} config
+   * @param {String} viewPath
+   * @param {Object} vars
+   * @returns {Promise}
    */
-  setConfig(config) {
-    this._config = Object.assign({}, this._defaults, config);
+  renderView(viewPath, vars) {
+    return new Promise((resolve, reject) => {
+      Twig.renderFile(viewPath, vars, (err, data) => {
+        return err ? reject(err) : resolve(data);
+      });
+    });
+  }
+
+  /**
+   * Get absolute path of the property
+   * @param {String} prop
+   * @param suffixes
+   * @return {*}
+   */
+  getPath(prop, ...suffixes) {
+    suffixes.unshift(this.get('app.path'), this.get(prop));
+
+    return path.join.apply(null, suffixes);
   }
 
   /**
@@ -71,7 +105,7 @@ class Config {
   has(path) {
     let [cfg, key] = this._handle(path);
 
-    return !!cfg[key];
+    return cfg.hasOwnProperty(key);
   }
 
   /**
@@ -83,32 +117,6 @@ class Config {
     let [cfg, key] = this._handle(path);
 
     return cfg[key];
-  }
-
-  /**
-   * Get absolute path of the property
-   * @param {String} prop
-   * @param suffixes
-   * @return {*}
-   */
-  getPath(prop, ...suffixes) {
-    if (typeof prop !== 'string') {
-      throw new Error('Only strings are allowed');
-    }
-
-    suffixes.unshift(this.get('app.path'), this.get(prop));
-
-    return path.join.apply(null, suffixes);
-  }
-
-  /**
-   * Delete property
-   * @param path
-   */
-  del(path) {
-    let [cfg, key] = this._handle(path);
-
-    delete cfg[key];
   }
 
   /**
