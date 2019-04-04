@@ -51,7 +51,7 @@ class Router {
    * @return {Promise}
    * @private
    */
-    _getHandler(req) {
+  _getHandler(req) {
     let { pathname } = URL.parse(req.url, true);
 
     if (this.handlers.hasOwnProperty(pathname)) {

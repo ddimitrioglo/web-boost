@@ -42,6 +42,7 @@ Try the demo application to learn `web-boost` in practice.
 
 * Add unit tests
 * Investigate [consolidate.js][2]
+* Rename `web-boost-cli` => `web-boost` & `web-boost` => `www-boost` (just a thought)
 
 ### Improvements
 
