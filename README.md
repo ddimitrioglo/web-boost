@@ -1,8 +1,8 @@
 # web-boost
 
-<img src="https://rawgit.com/ddimitrioglo/web-boost/master/logo.svg" width="200"/>
+<img src="https://raw.githack.com/ddimitrioglo/web-boost/master/logo.svg" width="200"/>
 
-`web-boost` - boost your static site development.
+#### `web-boost` - boost your static site development
 
 ### Description
 
